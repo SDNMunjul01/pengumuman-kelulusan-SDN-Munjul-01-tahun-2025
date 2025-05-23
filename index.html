@@ -104,27 +104,6 @@
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
-
-    /* Bubble greet */
-    .bubble {
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ffa500;
-      color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-size: 0.9em;
-      animation: popUp 1.2s ease-out forwards;
-      opacity: 0;
-    }
-
-    @keyframes popUp {
-      0% { opacity: 0; transform: translateX(-50%) scale(0.8); }
-      60% { opacity: 1; transform: translateX(-50%) scale(1.1); }
-      100% { transform: translateX(-50%) scale(1); }
-    }
   </style>
 </head>
 <body>
@@ -136,7 +115,6 @@
   <h4>Tahun Pelajaran 2024/2025</h4>
 
   <div class="login-box">
-    <div class="bubble" id="greet">Semangat ya! ✨</div>
     <input type="text" id="sidanira" placeholder="Masukkan No. Sidanira" required><br>
     <input type="password" id="password" placeholder="Masukkan Password" required><br>
     <button onclick="login()">CEK KELULUSAN</button>
@@ -164,11 +142,6 @@
         window.location.href = `hasil.html?sid=${sideno}&pass=${password}`;
       }, 1200);
     }
-
-    // Show bubble greet on page load
-    window.onload = () => {
-      document.getElementById("greet").style.opacity = "1";
-    };
   </script>
 </body>
 </html>
