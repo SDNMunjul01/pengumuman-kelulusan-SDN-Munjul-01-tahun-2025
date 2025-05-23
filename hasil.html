@@ -1,12 +1,79 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>Hasil Kelulusan</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hasil Kelulusan - SDN 01 MUNJUL</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: url('WhatsApp Image 2025-05-23 at 14.43.38.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      color: white;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 50, 0.5);
+      backdrop-filter: blur(5px);
+      z-index: -1;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      padding: 40px 30px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      color: #ffffff;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin: 12px 0;
+      color: #f1f1f1;
+    }
+
+    .status {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #00e676;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Hasil Kelulusan</h2>
-  <div id="hasil">Memuat...</div>
+  <div class="container">
+    <h2>Hasil Kelulusan</h2>
+    <div id="hasil">Memuat...</div>
+  </div>
 
   <script src="dataSiswa.js"></script>
   <script>
@@ -20,7 +87,7 @@
       const siswa = dataSiswa[sid];
       hasil.innerHTML = `
         <p>Nama: <strong>${siswa.nama}</strong></p>
-        <p>Status Kelulusan: <strong>${siswa.status}</strong></p>
+        <p class="status">${siswa.status}</p>
       `;
     } else {
       hasil.innerHTML = `<p style="color:red;">No. Sidanira atau Password salah.</p>`;
