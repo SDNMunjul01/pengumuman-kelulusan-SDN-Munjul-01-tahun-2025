@@ -1,51 +1,82 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Kelulusan</title>
     <style>
         body {
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             background: #007BFF;
             color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
             text-align: center;
-            margin-top: 100px;
         }
+
         .login-box {
             background: white;
             color: black;
-            padding: 20px;
+            padding: 30px 20px;
             border-radius: 10px;
-            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
         }
+
         input {
-            padding: 10px;
-            margin: 10px;
-            width: 200px;
+            padding: 12px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
         }
+
         button {
-            padding: 10px 20px;
+            padding: 12px 20px;
             background: orange;
             border: none;
             color: white;
             cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+
+        h2, h3 {
+            margin: 5px 0;
+        }
+
+        .logo {
+            max-width: 100px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
+
+    <!-- Optional: Tampilkan logo sekolah -->
+    <img src="WhatsApp_Image_2025-05-23_at_14.43.38-removebg-preview.png" alt="Logo SDN Munjul 01" class="logo">
+
     <h2>PENGUMUMAN KELULUSAN</h2>
-    <h3>SD NEGERI 01 MERDEKA</h3>
+    <h3>SD NEGERI MUNJUL 01</h3>
+
     <div class="login-box">
-        <input type="text" id="sidanira" placeholder="Masukkan No. Sidanira" required><br>
+        <input type="text" id="no.sidanara" placeholder="Masukkan No.sidanara" required><br>
         <input type="password" id="password" placeholder="Masukkan Password" required><br>
         <button onclick="login()">CEK KELULUSAN</button>
     </div>
 
     <script>
         function login() {
-            const sideno = document.getElementById("sidanira").value;
+            const no.sidanara = document.getElementById("no.sidanara").value;
             const password = document.getElementById("password").value;
-            window.location.href = `hasil.html?sid=${sideno}&pass=${password}`;
+            window.location.href = `hasil.html?no.sidanara=${no.sidanara}&pass=${password}`;
         }
     </script>
 </body>
