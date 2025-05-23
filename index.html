@@ -33,6 +33,7 @@
       max-width: 400px;
       color: #fff;
       animation: fadeIn 1s ease-in-out;
+      position: relative;
     }
 
     input {
@@ -87,6 +88,43 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-5px); }
     }
+
+    /* Spinner */
+    .spinner {
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-top: 5px solid orange;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      display: none;
+      margin: 20px auto 0;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Bubble greet */
+    .bubble {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffa500;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      animation: popUp 1.2s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes popUp {
+      0% { opacity: 0; transform: translateX(-50%) scale(0.8); }
+      60% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+      100% { transform: translateX(-50%) scale(1); }
+    }
   </style>
 </head>
 <body>
@@ -98,23 +136,39 @@
   <h4>Tahun Pelajaran 2024/2025</h4>
 
   <div class="login-box">
+    <div class="bubble" id="greet">Semangat ya! ✨</div>
     <input type="text" id="sidanira" placeholder="Masukkan No. Sidanira" required><br>
     <input type="password" id="password" placeholder="Masukkan Password" required><br>
     <button onclick="login()">CEK KELULUSAN</button>
+    <div class="spinner" id="spinner"></div>
   </div>
+
+  <audio id="clickSound" src="https://www.fesliyanstudios.com/play-mp3/4386" preload="auto"></audio>
 
   <script>
     function login() {
       const sideno = document.getElementById("sidanira").value;
       const password = document.getElementById("password").value;
+      const spinner = document.getElementById("spinner");
+      const clickSound = document.getElementById("clickSound");
 
       if (!sideno || !password) {
         alert("No. Sidanira dan Password harus diisi!");
         return;
       }
 
-      window.location.href = `hasil.html?sid=${sideno}&pass=${password}`;
+      clickSound.play();
+      spinner.style.display = "block";
+
+      setTimeout(() => {
+        window.location.href = `hasil.html?sid=${sideno}&pass=${password}`;
+      }, 1200);
     }
+
+    // Show bubble greet on page load
+    window.onload = () => {
+      document.getElementById("greet").style.opacity = "1";
+    };
   </script>
 </body>
 </html>
