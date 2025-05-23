@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hasil Kelulusan</title>
+</head>
+<body>
+  <h2>Hasil Kelulusan</h2>
+  <div id="hasil">Memuat...</div>
+
+  <script src="dataSiswa.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const sid = params.get("sid");
+    const pass = params.get("pass");
+
+    const hasil = document.getElementById("hasil");
+
+    if (dataSiswa[sid] && dataSiswa[sid].password === pass) {
+      const siswa = dataSiswa[sid];
+      hasil.innerHTML = `
+        <p>Nama: <strong>${siswa.nama}</strong></p>
+        <p>Status Kelulusan: <strong>${siswa.status}</strong></p>
+      `;
+    } else {
+      hasil.innerHTML = `<p style="color:red;">No. Sidanira atau Password salah.</p>`;
+    }
+  </script>
+</body>
+</html>
