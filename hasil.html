@@ -74,13 +74,12 @@
     <h2>Hasil Kelulusan</h2>
     <div id="hasil">Memuat...</div>
   </div>
-
+  
   <script src="dataSiswa.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const sid = params.get("sid");
     const pass = params.get("pass");
-
     const hasil = document.getElementById("hasil");
 
     if (dataSiswa[sid] && dataSiswa[sid].password === pass) {
