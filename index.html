@@ -66,18 +66,18 @@
   <h3>SD NEGERI MUNJUL 01</h3>
 
   <div class="login-box">
-    <input type="text" id="sidanara" placeholder="Masukkan No. Sidanara" required><br>
+    <input type="text" id="sidanira" placeholder="Masukkan No. Sidanira" required><br>
     <input type="password" id="password" placeholder="Masukkan Password" required><br>
     <button onclick="login()">CEK KELULUSAN</button>
   </div>
 
   <script>
     function login() {
-      const sideno = document.getElementById("sidanara").value;
+      const sideno = document.getElementById("sidanira").value;
       const password = document.getElementById("password").value;
 
       if (!sideno || !password) {
-        alert("No. Sidanara dan Password harus diisi!");
+        alert("No. Sidanira dan Password harus diisi!");
         return;
       }
 
